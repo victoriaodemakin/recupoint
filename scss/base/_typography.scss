@@ -1,0 +1,34 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: top 0;
+}
+p {
+  margin-top: 0;
+}
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+}
+
+img {
+  width: 100%;
+}

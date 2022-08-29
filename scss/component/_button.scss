@@ -1,0 +1,6 @@
+@use '../util' as u;
+@use '../abstract' as a;
+.cta {
+  @include a.btn;
+}
+

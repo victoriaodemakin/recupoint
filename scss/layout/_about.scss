@@ -1,0 +1,186 @@
+@use "../util" as u;
+@use "../abstract" as a;
+@use "sass:math";
+main{
+ width: 100%;
+ .get-access-signup{
+  p {
+   @include a.breakpoint(large) {
+    padding: 0 12em;
+
+  }
+  }
+ }
+}
+.about__hero {
+  height: 30vh;
+
+  h1 {
+    font-size: 2em;
+    font-weight: a.weight(bold);
+    color: a.set-color(primary-color);
+    margin: u.$base-margin * 5 auto;
+    font-family: u.$font;
+    text-align: center;
+
+    @include a.breakpoint(large) {
+      font-size: 3em;
+    }
+  }
+  &-container{
+    padding: 0 1em ;
+  }
+  &-background{
+   background: url("/dist/images/question.jpg");
+   padding: u.$base-padding*3 u.$base-padding;
+   width: 100%;
+   background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    margin: u.$base-margin*4 0;
+    @include a.breakpoint(large) {
+   }
+
+
+    img{
+     width: 100px;
+     margin: u.$base-margin*8 u.$base-margin;
+     @include a.breakpoint(large) {
+      width: 20%;
+     margin: u.$base-margin*6 u.$base-margin*8;
+    }
+
+     
+    }
+  }
+  
+}
+.About__description{
+ &-img{
+  display: none;
+  @include a.breakpoint(large) {
+display: block;
+width: 60%;
+  }
+  
+ }
+
+ h3{
+  font-size: 1.5em;
+    font-weight: a.weight(bold);
+
+ }
+ span{
+  img {
+   width: 45px;
+  }
+ }
+ &__main-desc{
+  @include a.breakpoint(large) {
+    display: flex;
+    flex-direction: row;
+
+  }
+  .desc{
+    @include a.breakpoint(large) {
+      flex: 2;
+  
+      h3{
+        font-size: 2em;
+          font-weight: a.weight(bold);
+          text-align: right;
+          margin-left: 14em;
+          
+      
+       }
+       p{
+        
+          color: a.set-color(text-color);
+          font-size: 1em;
+          font-family: u.$font;
+          line-height: 1.5em;
+          margin: u.$base-margin * 2 0;
+          text-align: right;
+          padding-left: 20em;
+          padding-right: 4em;
+        
+       }
+    }
+   }
+   &-row1{
+    @include a.breakpoint(large) {
+      h3{
+        font-size: 2em;
+          font-weight: a.weight(bold);
+          text-align: right;
+          margin-left: 12em;
+          
+      
+       }
+       p{
+        
+          color: a.set-color(text-color);
+          font-size: 1em;
+          font-family: u.$font;
+          line-height: 1.5em;
+          margin: u.$base-margin * 2 0;
+          text-align: right;
+          padding-left: 30em;
+          padding-right: 15em;
+        
+       }
+      
+  
+    }
+   }
+   &-row2{
+    @include a.breakpoint(large) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin: 4em 0;
+  
+    }
+    .desc{
+      @include a.breakpoint(large) {
+        flex: 2;
+    
+        h3{
+          font-size: 2em;
+            font-weight: a.weight(bold);
+            text-align: right;
+            margin-left: -8em;
+            
+        
+         }
+         p{
+          
+            color: a.set-color(text-color);
+            font-size: 1em;
+            font-family: u.$font;
+            line-height: 1.5em;
+            margin: u.$base-margin * 2 0;
+            text-align: left;
+            padding-right: 20em;
+            padding-left: 4em;
+          
+         }
+      }
+     }
+     .About__description-img{
+      display: none;
+      @include a.breakpoint(large) {
+    display: block;
+    width: 60%;
+    position: relative;
+    left: 42%;
+      }
+      
+     }
+    
+
+   }
+ }
+ 
+}

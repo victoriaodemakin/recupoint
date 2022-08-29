@@ -1,0 +1,535 @@
+@use "../util" as u;
+@use "../abstract" as a;
+@use "sass:math";
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+
+  &__logo {
+    width: 40px;
+
+    img {
+      width: 100%;
+    }
+  }
+  &__search-btn input[type="text"] {
+    float: right;
+    padding: u.$base-padding u.$base-padding * 2;
+    margin: 0 auto;
+    border: 2px;
+    font-size: u.$font-size-sm;
+    position: relative;
+    width: 200px;
+    left: -20%;
+    @include a.breakpoint(medium) {
+      width: 300px;
+    }
+    @include a.breakpoint(large) {
+      width: 23%;
+      position: absolute;
+      left: 10%;
+      margin: 0;
+      float: left;
+    }
+    @include a.breakpoint(x-large){
+      width: 23%;
+      position: absolute;
+      left: 10%;
+      margin: 0;
+      float: left;
+    }
+  }
+  &__search-btn-icon {
+    width: 20px;
+    position: absolute;
+    right: 70px;
+    top: 20px;
+    @include a.breakpoint(medium) {
+      right: 78px;
+      position: absolute;
+      right: 13%;
+      margin: 0;
+      float: left;
+    }
+    @include a.breakpoint(large) {
+      right: 78px;
+      position: absolute;
+      left: 30%;
+      margin: 0;
+      float: left;
+    }
+  }
+}
+.hero {
+  &__container {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.6),
+        rgba(0, 0, 0, 0)
+      ),
+      url("/dist/images/hero-img.jpg") center top;
+    background-position: left right;
+    background-repeat: no-repeat;
+    background-size: 900px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    @include a.breakpoint(medium) {
+      display: flex;
+      flex-direction: row;
+    }
+    @include a.breakpoint(large) {
+      background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.8),
+          rgba(0, 0, 0, 0)
+        ),
+        url("/dist/images/hero-img.jpg") center top;
+      background-position: left right;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  &__text--block {
+    text-align: center;
+    margin:8em auto 3em auto;
+    @include a.breakpoint(medium) {
+      flex: 2;
+      text-align: left;
+      padding: 0 2em;
+      margin-top: 12em;
+    }
+
+    @include a.breakpoint(large) {
+      flex: 2;
+      text-align: left;
+      padding: 0 2em;
+      margin-top: 14em;
+    }
+
+    & h1 {
+      font-size: 3em;
+      font-weight: a.weight(bold);
+      color: a.set-color(primary-color);
+      margin: u.$base-margin 0;
+      font-family: u.$font;
+    }
+
+    & p {
+      color: a.set-color(text-color);
+      font-size: 1.2em;
+      font-family: u.$font;
+      margin-bottom: math.div(u.$base-margin, 1);
+      @include a.breakpoint(medium) {
+        width: 90%;
+        line-height: 1.3em;
+        margin-bottom: u.$base-margin * 3;
+      }
+    }
+    & .cta {
+      @include a.btn;
+      color: a.set-color(white-color);
+      width: 150px;
+
+      &:hover {
+        background-color: a.set-color(white-color);
+        color: a.set-color(primary-color);
+      }
+    }
+  }
+
+  &__social--icon {
+    margin: u.$base-margin * 2 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    @include a.breakpoint(medium) {
+      justify-content: end;
+      padding-right: 2em;
+    }
+
+    & img {
+      width: 100%;
+    }
+
+    & ul {
+      display: flex;
+      list-style-type: none;
+      @include a.breakpoint(medium) {
+        flex-direction: column;
+        justify-content: end;
+      }
+    }
+    & li {
+      margin: 0 0.2em;
+      cursor: pointer;
+      margin-bottom: 1em;
+    }
+    & a {
+      @include a.transition-ease;
+
+      &:hover {
+        color: a.set-color(secondary-color);
+      }
+    }
+  }
+}
+
+.description {
+  margin: 1em auto;
+  width: 100%;
+  text-align: center;
+  padding: 0 0.5em;
+
+  & h2 {
+    font-size: 2em;
+    font-weight: a.weight(semi-bold);
+    color: a.set-color(heading-color);
+    margin: u.$base-margin * 3 0 0 0;
+    font-family: u.$font;
+  }
+  &__main-desc {
+    display: flex;
+    flex-direction: column;
+    margin: u.$base-margin * 3 0 u.$base-margin 0;
+    @include a.breakpoint(large) {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      padding: 0 4em;
+    }
+    @include a.breakpoint(x-large) {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      padding: 0 7em;
+    }
+    div {
+      width: 100%;
+    }
+    &.desc {
+      width: 100%;
+    }
+  }
+  &__even-col {
+    @include a.breakpoint(large) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__title {
+    font-size: 1.9em;
+    font-weight: a.weight(semi-bold);
+    color: a.set-color(primary-color);
+    margin: u.$base-margin * 2 0 u.$base-margin 0;
+    font-family: u.$font;
+    line-height: 1.2em;
+    text-align: center;
+    @include a.breakpoint(large) {
+      text-align: left;
+      width: 50%;
+      margin-left: u.$base-margin * 0.5;
+    }
+  }
+  &__subtext {
+    color: a.set-color(text-color);
+    font-size: u.$base-font-size;
+    font-family: u.$font;
+    line-height: 1.4em;
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 0 1em;
+    margin: u.$base-margin * 1 0 u.$base-margin * 3 0;
+
+    @include a.breakpoint(large) {
+      text-align: left;
+      padding: 0 1em;
+    }
+  }
+}
+.get-access {
+  @include a.access-column;
+
+  &-signup {
+    width: 100%;
+    margin: 3em auto;
+    text-align: center;
+    h3 {
+      font-size: 2em;
+      font-weight: a.weight(semi-bold);
+      color: a.set-color(white-color);
+      margin: u.$base-margin * 1 0;
+      font-family: u.$font;
+      line-height: 1.2em;
+    }
+    p {
+      color: a.set-color(white-color);
+      font-size: 1em;
+      font-family: u.$font;
+      line-height: 1.5em;
+      margin: u.$base-margin * 2 0;
+    }
+  }
+  &-cta {
+    @include a.btn;
+    background-color: a.set-color(white-color);
+    color: a.set-color(secondary-color);
+    padding: 1em;
+
+    &:hover {
+      background-color: a.set-color(secondary-color);
+      color: a.set-color(white-color);
+    }
+  }
+}
+.card {
+  margin: 1em auto;
+  width: 100%;
+  text-align: center;
+  padding: 0 0.5em;
+
+  & h2 {
+    font-size: 2em;
+    padding: 0 1em;
+    line-height: 1em;
+    font-weight: a.weight(semi-bold);
+    color: a.set-color(heading-color);
+    margin: u.$base-margin * 3 0 0 0;
+    font-family: u.$font;
+  }
+  &__widget--section {
+    @include a.grid-column;
+    padding: 2em 2em;
+    @include a.breakpoint(large) {
+      padding: 0 7em;
+    }
+  }
+  &__widget {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    height: 60vh;
+
+    // padding: 3em 4em 2em 4em ;
+    background-color: lighten(a.set-color(secondary-color), 25%);
+
+    div {
+      padding: 3em 4em 1em 4em;
+      height: 40vh;
+    }
+    img {
+      width: 200px;
+      border-radius: 25px;
+    }
+    & h4 {
+      font-size: 2em;
+      line-height: 1em;
+      font-weight: a.weight(bold);
+      color: a.set-color(primary-color);
+      margin: u.$base-margin * 1 0 u.$base-margin * 3 0;
+      font-family: u.$font;
+    }
+  }
+  .service-icon-card {
+    padding: 2em 2em 1em 2em;
+    height: 60vh;
+
+    img {
+      width: 100px;
+    }
+  }
+  .adjust-effect {
+    margin-top: -0.7em;
+  }
+}
+.get-access-second {
+  @include a.access-column;
+  background: a.set-color(white-color);
+  h3 {
+    font-size: 2em;
+    font-weight: a.weight(semi-bold);
+    color: a.set-color(heading-color);
+    margin: u.$base-margin * 1 0;
+    font-family: u.$font;
+    line-height: 1.2em;
+  }
+  p {
+    color: a.set-color(text-color);
+    font-size: 1em;
+    font-family: u.$font;
+    line-height: 1.5em;
+    margin: u.$base-margin * 2 0;
+  }
+}
+.cta {
+  @include a.btn;
+  background-color: a.set-color(primary-color);
+  color: a.set-color(white-color);
+  padding: 1em;
+
+  &:hover {
+    background-color: a.set-color(white-color);
+    color: a.set-color(primary-color);
+    border: 1px solid a.set-color(primary-color);
+  }
+}
+
+.footer {
+  width: 100%;
+  background-color: black;
+  padding: 3em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include a.breakpoint(medium) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__links {
+    display: block;
+    text-decoration: none;
+    font-family: u.$font;
+    font-size: u.$font-size-sm;
+    font-weight: 400;
+    margin: u.$base-margin * 1.5 0;
+    text-align: center;
+
+    a {
+      color: a.set-color(white-color);
+      cursor: pointer;
+    }
+    &:hover {
+      color: a.set-color(primary-color);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: u.$base-margin * 2 0;
+    @include a.breakpoint(medium) {
+      display: flex;
+      flex: 2;
+    }
+
+    &--nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: u.$base-margin * 2 0;
+      @include a.breakpoint(medium) {
+        display: flex;
+        flex: 1.5;
+        justify-content: space-around;
+      }
+
+      h4 {
+        font-size: 1.2em;
+        font-weight: a.weight(semi-bold);
+        color: a.set-color(white-color);
+        margin: u.$base-margin * 1 0;
+        font-family: u.$font;
+        line-height: 1.2em;
+      }
+    }
+    &--icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: u.$base-margin * 2 0;
+      @include a.breakpoint(medium) {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      h4 {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: a.weight(semi-bold);
+        color: a.set-color(white-color);
+        margin: u.$base-margin 0;
+        font-family: u.$font;
+        @include a.breakpoint(medium) {
+          // margin: u.$base-margin 32px;
+        }
+      }
+    }
+    &--social {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+      margin: auto 0;
+      & ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      & li {
+        text-align: center;
+        margin-right: 1em;
+      }
+    }
+  }
+  &__logo {
+    margin: u.$base-margin * 2 0;
+
+    img {
+      width: 15%;
+    }
+
+    &--text {
+      font-size: 2em;
+      font-weight: a.weight(bold);
+      color: a.set-color(white-color);
+      margin: u.$base-margin 0;
+      font-family: u.$font;
+    }
+  }
+  &__sign--up {
+    @include a.breakpoint(medium) {
+      flex-direction: column;
+    }
+    p {
+      color: a.set-color(white-color);
+      font-size: u.$font-size-sm;
+      font-family: u.$font;
+    }
+    input[type="text"] {
+      width: 70%;
+      padding: u.$base-padding; /* Full width */
+      background: a.set-color(white-color);
+      font-size: u.$font-size-sm;
+      font-family: u.$font;
+      border: 1px solid a.set-color(white-color);
+      @include a.breakpoint(medium) {
+        width: 70%;
+      }
+    }
+    .cta {
+      @include a.btn;
+      width: 90px;
+      margin-left: -0.3em;
+      text-transform: uppercase;
+      font-weight: a.weight(bold);
+      padding: 1em;
+      @include a.breakpoint(medium) {
+        width: 90px;
+      }
+    }
+  }
+}
+.attribution {
+  background-color: black;
+  color: a.set-color(white-color);
+  font-size: u.$font-size-sm;
+  font-family: u.$font;
+  text-align: center;
+}

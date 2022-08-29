@@ -1,0 +1,130 @@
+@use "../util" as u;
+@use "../abstract" as a;
+@use "sass:math";
+
+.contact{
+ margin: 1em auto;
+ &__get-access{
+  @include a.access-column;
+  background: a.set-color(white-color);
+  border-bottom: 2px solid a.set-color(secondary-color);
+  border-top: 2px solid a.set-color(secondary-color);
+
+  h1{
+   font-size: 2em;
+      font-weight: a.weight(bold);
+      color: a.set-color(primary-color);
+      margin: u.$base-margin * 1 auto;
+      font-family: u.$font;
+      line-height: 1.2em;
+  }
+  p{
+   color: a.set-color(text-color);
+      font-size: 1em;
+      font-family: u.$font;
+      line-height: 1.5em;
+      text-align: center;
+      padding: u.$base-padding*2;
+      
+  }
+ }
+ &__form {
+    &-message{
+        padding: u.$base-padding;
+        @include a.breakpoint(large) {
+            padding: u.$base-padding*7;
+          }
+
+        input[type=text], select, textarea {
+            width: 100%; /* Full width */
+            padding: u.$base-padding; /* Some padding */ 
+            border: 1px solid a.set-color(background-color);
+            
+            box-sizing: border-box; /* Make sure that padding and width stays in place */
+            margin-top: u.$base-margin; /* Add a top margin */
+            margin-bottom: u.$base-margin*2; /* Bottom margin */
+            resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+        }
+        
+        /* Style the submit button with a specific background color etc */
+        input[type=submit] {
+           @include a.btn;
+           padding: 1em;
+           margin-bottom: u.$base-margin*3;
+    
+        }
+        
+        /* When moving the mouse over the submit button, add a darker green color */
+        input[type=submit]:hover {
+            background-color: a.set-color(white-color);
+          color: a.set-color(primary-color);
+          border: 1px solid a.set-color(primary-color);
+        }
+
+    }
+    &-contact{
+        display: flex;
+        flex-direction: column;
+        padding: u.$base-padding;
+        margin: u.$base-margin auto;
+        // &-area{
+            @include a.breakpoint(large) {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content: center;
+                padding: u.$base-padding*7;
+            //   }
+
+        }
+       
+       
+        h3{
+            font-size: 1.2em;
+               font-weight: a.weight(bold);
+               color: a.set-color(primary-color);
+               margin: u.$base-margin * 1 auto;
+               font-family: u.$font;
+               line-height: 1.2em;
+           }
+           a{
+            color: a.set-color(secondary-color);
+            font-size: 1em;
+               font-family: u.$font;
+               line-height: 1.5em;
+               text-align: center;
+    
+            /* mouse over link */
+            &:hover {
+                color: lighten(a.set-color(primary-color), 20);
+            }
+            
+            /* selected link */
+            &:active {
+                color: a.set-color(text-color);
+            }
+           }
+           h5{
+            color: a.set-color(primary-color);
+               font-size: 1em;
+               font-family: u.$font;
+               line-height: 1.5em;
+           }
+           span{
+            color: a.set-color(secondary-color);
+               font-size: 1em;
+               font-family: u.$font;
+               line-height: 1.5em;
+               font-weight: a.weight(semi-bold);
+
+               
+           }
+    }
+    
+
+
+    
+    
+    
+ }
+}

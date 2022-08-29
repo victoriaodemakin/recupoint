@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@use '../util' as u;
+
+//this will target the font weight if the function is called by checking the font weight map in the font folder
+
+@function weight($weight-name) {
+  @return map-get(u.$font-weights, $weight-name);
+}
+
+@function set-color($color-name) {
+  @return map-get(u.$color, $color-name);
+}
+
+
+//this will convert those value in px to em when the function is called
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  }
+}

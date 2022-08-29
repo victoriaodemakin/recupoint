@@ -1,0 +1,53 @@
+// mixin for breakpoint with refernnce to the map in breakpoint file
+@use '../util' as u;
+@use 'functions' as f;
+@use 'breakpoints' as b;
+@use 'sass:math';
+
+
+
+@mixin breakpoint($screensize) {
+  @media (min-width: map-get(b.$breakpoints-up , $screensize)) {
+    @content;
+  }
+}
+@mixin btn{
+  text-decoration: none;
+  cursor: pointer;
+  padding: 1em;
+  display: inline-block;
+  border: 0;
+  width: 150px;
+  font-size: u.$font-size-sm;
+  padding: u.$base-padding u.$base-padding * 2;
+  border-radius: math.div(u.$base-border-radius,4);
+  background-color: f.set-color(primary-color);
+  // background-color: map-get(u.$color, secondary-color);
+}
+
+@mixin transition-ease {
+  transition: all 0.5s ease-in-out;
+}
+
+
+@mixin grid-column {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-gap: 2em;
+  padding: 0 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin: u.$base-margin * 3 0 u.$base-margin * 2 0;
+
+}
+@mixin access-column{
+  background: linear-gradient(
+    to right,
+    f.set-color(primary-color),
+    f.set-color(secondary-color)
+  );
+  padding: 3em 1em;
+  margin: u.$base-margin * 2 0 u.$base-margin * 3 0;
+}
+  
