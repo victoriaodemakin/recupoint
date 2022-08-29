@@ -36,12 +36,13 @@ main {
     background: url("/dist/images/question.jpg");
     padding: u.$base-padding * 3 u.$base-padding;
     width: 100%;
-    background-position: center;
+    background-position: center ;
     background-repeat: no-repeat;
     background-size: cover;
     height: 70vh;
     margin: u.$base-margin * 4 0;
     @include a.breakpoint(x-large) {
+    padding: u.$base-padding * 3 u.$base-padding;
     }
 
     img {
