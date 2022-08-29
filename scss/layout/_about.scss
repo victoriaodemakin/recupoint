@@ -5,7 +5,11 @@ main{
  width: 100%;
  .get-access-signup{
   p {
-   @include a.breakpoint(large) {
+     @include a.breakpoint(large) {
+    padding: 0 6em;
+
+  }
+   @include a.breakpoint(x-large) {
     padding: 0 12em;
 
   }
@@ -23,7 +27,7 @@ main{
     font-family: u.$font;
     text-align: center;
 
-    @include a.breakpoint(large) {
+    @include a.breakpoint(x-large) {
       font-size: 3em;
     }
   }
@@ -31,7 +35,7 @@ main{
     padding: 0 1em ;
   }
   &-background{
-   background: url("/dist/images/question.jpg");
+   background: url("./dist/images/question.jpg");
    padding: u.$base-padding*3 u.$base-padding;
    width: 100%;
    background-position: center ;
@@ -39,7 +43,7 @@ main{
     background-size: cover;
     height: 70vh;
     margin: u.$base-margin*4 0;
-    @include a.breakpoint(large) {
+    @include a.breakpoint(x-large) {
    }
 
 
@@ -47,6 +51,10 @@ main{
      width: 100px;
      margin: u.$base-margin*8 u.$base-margin;
      @include a.breakpoint(large) {
+      width: 20%;
+      margin: u.$base-margin*4 u.$base-margin*8;  
+    }
+     @include a.breakpoint(x-large) {
       width: 20%;
      margin: u.$base-margin*6 u.$base-margin*8;
     }
@@ -60,6 +68,10 @@ main{
  &-img{
   display: none;
   @include a.breakpoint(large) {
+    display: block;
+    width: 60%;
+      }
+  @include a.breakpoint(x-large) {
 display: block;
 width: 60%;
   }
@@ -82,8 +94,37 @@ width: 60%;
     flex-direction: row;
 
   }
+  @include a.breakpoint(x-large) {
+    display: flex;
+    flex-direction: row;
+
+  }
   .desc{
     @include a.breakpoint(large) {
+      flex: 2;
+  
+      h3{
+        font-size: 2em;
+          font-weight: a.weight(bold);
+          text-align: right;
+          margin-left: 8em;
+          
+      
+       }
+       p{
+        
+          color: a.set-color(text-color);
+          font-size: 1em;
+          font-family: u.$font;
+          line-height: 1.5em;
+          margin: u.$base-margin * 2 0;
+          text-align: right;
+          padding-left: 2em;
+          padding-right: 2em;
+        
+       }
+    }
+    @include a.breakpoint(x-large) {
       flex: 2;
   
       h3{
@@ -109,7 +150,32 @@ width: 60%;
     }
    }
    &-row1{
+    margin: 3em 0;
     @include a.breakpoint(large) {
+      h3{
+        font-size: 2em;
+          font-weight: a.weight(bold);
+          text-align: right;
+          margin-left: 4em;
+          
+      
+       }
+       p{
+        
+          color: a.set-color(text-color);
+          font-size: 1em;
+          font-family: u.$font;
+          line-height: 1.5em;
+          margin: u.$base-margin * 2 0;
+          text-align: right;
+          padding-left: 14em;
+          padding-right: 8em;
+        
+       }
+      
+  
+    }
+    @include a.breakpoint(x-large) {
       h3{
         font-size: 2em;
           font-weight: a.weight(bold);
@@ -142,8 +208,39 @@ width: 60%;
       margin: 4em 0;
   
     }
+    @include a.breakpoint(x-large) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin: 4em 0;
+  
+    }
     .desc{
       @include a.breakpoint(large) {
+        flex: 2;
+    
+        h3{
+          font-size: 2em;
+            font-weight: a.weight(bold);
+            text-align: right;
+            margin-left: -1em;
+            
+        
+         }
+         p{
+          
+            color: a.set-color(text-color);
+            font-size: 1em;
+            font-family: u.$font;
+            line-height: 1.5em;
+            margin: u.$base-margin * 2 0;
+            text-align: left;
+            padding-right: 10em;
+            padding-left: 4em;
+          
+         }
+      }
+      @include a.breakpoint(x-large) {
         flex: 2;
     
         h3{
@@ -171,6 +268,13 @@ width: 60%;
      .About__description-img{
       display: none;
       @include a.breakpoint(large) {
+        display: block;
+        width: 55%;
+        position: relative;
+        left: 45%;
+        top: 20%;
+          }
+      @include a.breakpoint(x-large) {
     display: block;
     width: 60%;
     position: relative;
